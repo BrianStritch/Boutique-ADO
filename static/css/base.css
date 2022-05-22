@@ -102,6 +102,21 @@ a.category-badge > span.badge:hover {
 .remove-item {
     cursor: pointer;
 }
+/* ********************* Toasts **********************************/
+.message-container{
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 20000;
+}
+
+.custom-toast{
+    overflow: visible;    
+}
+
+.toast-capper{
+    height: 2px;
+}
 
 /* -------------------------------- Media Queries */
 

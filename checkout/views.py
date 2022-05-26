@@ -42,7 +42,7 @@ def checkout(request):
                         )
                         order_line_item.save()
                     else:
-                        for size,quantity in item_data[items_by_size].items():
+                        for size,quantity in item_data['items_by_size'].items():
                             order_line_item = OrderLineItem(
                             order=order,
                             product=product,
@@ -58,7 +58,7 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse('view_bag'))
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=order.order_number))
+            return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, (
                 'Ther was an error with your form.'
@@ -99,16 +99,17 @@ def checkout_success(request, order_number):
     """
     A view to handle succesful checkouts
     """
+    
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
     messages.success(request, f'Order successfully processed. \
         your order number is {order_number}. A confirmation email \
             will be sent to {order.email}.')
     
-    if bag in request.session:
+    if 'bag'in request.session:
         del request.session['bag']
 
-    template = 'checkout/checkout_success/'
+    template = 'checkout/checkout_success.html'
     context = {
         'order': order,
     }

@@ -14,7 +14,6 @@ def webhook(request):
     '''
     Listen for webhooks from stripe
     '''
-    print('inside webhook')
     # setup
     wh_secret = settings.STRIPE_WH_SECRET
     stripe_api_key = settings.STRIPE_SECRET_KEY
@@ -56,5 +55,5 @@ def webhook(request):
     response = event_handler(event)
     return response
 
-    print('this is at the end of webhooks.py file')
+
 

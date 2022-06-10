@@ -1,0 +1,21 @@
+Hello {{ order.full_name }}!
+
+This is a confirmation of your order at Boutique Ado. Your order information is below:
+
+Order number : {{ order.order_number }}
+Order date : {{ order.date }}
+
+Order total : {{ order.order_total }}
+Delivery cost : {{ order.delivery_cost }}
+Grand Total : {{ order.grand_total }}
+
+YOur order will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}.
+
+The contact number we have on file is {{ order.phone_number }}, which we will relay to the delivery driver.
+
+If you have any further queries please do not hesitate to contact us at {{ contact_email }}.
+
+Thank you for placing an order with Boutique Ado.
+Yours Sincerely,
+
+BS AutoParts

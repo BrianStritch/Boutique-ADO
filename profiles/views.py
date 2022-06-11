@@ -28,7 +28,7 @@ def profile(request):
     context = {
         'orders': orders,
         'form': form,
-        'on_profile_page': True,
+        'stop_toast_cart': True,
         }
 
     return render(request, template, context)
